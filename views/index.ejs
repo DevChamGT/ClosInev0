@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Inicio de sesión</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <style>
+		label {
+			display: block;
+			margin-bottom: 5px;
+		}
+		input[type="text"], input[type="password"] {
+			display: block;
+			margin-bottom: 10px;
+			padding: 5px;
+			width: 10%;
+			box-sizing: border-box;
+			border: 1px solid #ccc;
+			border-radius: 4px;
+		}
+	</style>
+  </head>
+  <body>
+    <h1>Bienvenido a CloseIne - Inicie sesión</h1>
+    
+    <form method="post" action="/login">
+      <label>
+        Nombre de usuario:
+        <input type="text" name="username">
+      </label>
+      <br>
+      <label>
+        Contraseña:
+        <input type="password" name="password" id="password">
+      </label>
+      <label for="show-password">Mostrar contraseña:
+      <input type="checkbox" id="show-password" onclick="togglePasswordVisibility()">
+      </label>
+
+      <br>
+      <button type="submit">Iniciar sesión</button>
+    </form>
+    <% if (mensaje) { %>
+        <p><%= mensaje %></p>
+      <% } %>
+    <script>
+		function togglePasswordVisibility() {
+			var passwordField = document.getElementById("password");
+			if (passwordField.type === "password") {
+				passwordField.type = "text";
+			} else {
+				passwordField.type = "password";
+			}
+		}
+	</script>
+  </body>
+</html>
